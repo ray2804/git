@@ -673,6 +673,9 @@ void show_submodule_inline_diff(struct diff_options *o, const char *path,
 	    !(right || is_null_oid(two)))
 		goto done;
 
+	if (!is_directory(path))
+		goto done;
+
 	if (left)
 		old_oid = one;
 	if (right)
